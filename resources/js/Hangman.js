@@ -46,11 +46,18 @@ class Hangman {
   guess(letter) {
     
     try{
-      if(guess = null)
-    }
-    
-    catch{
-      
+      if(guess = null){
+        throw new error('Invalid guess. Enter a letter to guess the word.')
+      }else if(guess.isDigit()){
+        throw new error('Invalid guess. Cannot enter numbers or symbols for a guess. Try again.')
+      }else if(guess > 1){
+        throw new error('Invalid guess. More than one letter was guessed. Try again.')
+      }else if(this.guesses = guess){
+        throw new error('Invalid guess. You already guessed this letter. Try again.')
+      }
+    }catch (error){
+      console.error(error);
+      alert(error);
     }
     
     // Check if nothing was provided and throw an error if so
