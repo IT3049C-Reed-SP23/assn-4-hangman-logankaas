@@ -31,6 +31,34 @@ try {
   //       4. call the game getGuessessText and set it to the guessesText
   difficultySelectForm.addEventListener(`submit`, function (event) {});
 
+  
+  function guess(){
+    wordHolderText = game.getHolderText();
+    guessesText = game.getGuessesText();
+  }
+  
+  function checkWin(){
+    if(guessInput = wordHolderText){
+      system.out.println("You guessed correct. You Win!")
+    }
+  }
+  
+  function onWrongGuess(){
+    if(guessInput != wordHolderText){
+      system.out.println("You guessed wrong. Guess again.")
+    }
+  }
+  
+  function isOver(){
+    if(guessInput != wordHolderText){
+      system.out.println("You exceeded the guessing amount. Game Over.")
+    }else{
+      guessInput.setEnabled(false);
+      guessButton.setEnabled(false);
+      resetGame.setEnabled(true);
+    }
+  }
+  
   // add a submit Event Listener to the guessForm
   //    get the guess input
   //    call the game guess() method
