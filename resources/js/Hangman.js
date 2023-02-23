@@ -44,6 +44,15 @@ class Hangman {
    * @param {string} letter the guessed letter.
    */
   guess(letter) {
+    
+    try{
+      if(guess = null)
+    }
+    
+    catch{
+      
+    }
+    
     // Check if nothing was provided and throw an error if so
     // Check for invalid cases (numbers, symbols, ...) throw an error if it is
     // Check if more than one letter was provided. throw an error if it is.
