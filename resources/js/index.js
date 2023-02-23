@@ -20,43 +20,63 @@ let canvas = document.getElementById(`hangmanCanvas`);
 
 // The following Try-Catch Block will catch the errors thrown
 try {
+  
+  function difficultySelect(){
+    if(difficulty).clicked(){
+      return gameStart();
+    }
+  }
+  
+  function gameStart(){
+    startWrapper.setVisible(false);
+    startWrapper.setVisible(true);
+    game.getWordHolderText = wordHolderText;
+    game.getGuessessText = guessText;
+  }
+  
   // Instantiate a game Object using the Hangman class.
-
-  // add a submit Event Listener for the to the difficultySelectionForm
   //    get the difficulty input
   //    call the game start() method, the callback function should do the following
   //       1. hide the startWrapper
   //       2. show the gameWrapper
   //       3. call the game getWordHolderText and set it to the wordHolderText
   //       4. call the game getGuessessText and set it to the guessesText
+  
   difficultySelectForm.addEventListener(`submit`, function (event) {});
 
   
   function guess(){
     wordHolderText = game.getHolderText();
     guessesText = game.getGuessesText();
+    
+    return guess();
   }
   
   function checkWin(){
     if(guessInput = wordHolderText){
       system.out.println("You guessed correct. You Win!")
     }
+    
+    return checkWin();
   }
   
   function onWrongGuess(){
     if(guessInput != wordHolderText){
       system.out.println("You guessed wrong. Guess again.")
     }
+    
+    return onWrongGuess();
   }
   
   function isOver(){
     if(guessInput != wordHolderText){
       system.out.println("You exceeded the guessing amount. Game Over.")
-    }else{
       guessInput.setEnabled(false);
       guessButton.setEnabled(false);
       resetGame.setEnabled(true);
     }
+    
+    return gameStart();
   }
   
   // add a submit Event Listener to the guessForm
@@ -72,12 +92,17 @@ try {
   //      2. disable the guessButton
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
+  
   guessForm.addEventListener(`submit`, function (e) {});
 
   // add a click Event Listener to the resetGame button
   //    show the startWrapper
   //    hide the gameWrapper
-  resetGame.addEventListener(`click`, function (e) {});
+  
+  resetGame.addEventListener(`click`, function (e) {
+    startWrapper.setEnabled(true);
+    gameWrapper.setEnabled(false);
+  });
 } catch (error) {
   console.error(error);
   alert(error);
