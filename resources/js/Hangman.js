@@ -31,12 +31,14 @@ class Hangman {
    * @param {function} next callback function to be called after a word is reveived from the API.
    */
   start(difficulty, next) {
-    // get word and set it to the class's this.word
-    // clear canvas
-    // draw base
-    // reset this.guesses to empty array
-    // reset this.isOver to false
-    // reset this.didWin to false
+    
+    this.word = word
+    canvas.clear();
+    this.guesses = [];
+    this.Over = false
+    this.didWin = false
+    
+    return drawBase;
   }
 
   /**
@@ -44,6 +46,22 @@ class Hangman {
    * @param {string} letter the guessed letter.
    */
   guess(letter) {
+    
+    try{
+      if(guess = null){
+        throw new error('Invalid guess. Enter a letter to guess the word.')
+      }else if(guess.isDigit()){
+        throw new error('Invalid guess. Cannot enter numbers or symbols for a guess. Try again.')
+      }else if(guess > 1){
+        throw new error('Invalid guess. More than one letter was guessed. Try again.')
+      }else if(this.guesses = guess){
+        throw new error('Invalid guess. You already guessed this letter. Try again.')
+      }
+    }catch (error){
+      console.error(error);
+      alert(error);
+    }
+    
     // Check if nothing was provided and throw an error if so
     // Check for invalid cases (numbers, symbols, ...) throw an error if it is
     // Check if more than one letter was provided. throw an error if it is.
@@ -56,8 +74,14 @@ class Hangman {
   }
 
   checkWin() {
-    // using the word and the guesses array, figure out how many remaining unknowns.
-    // if zero, set both didWin, and isOver to true
+    
+    if(this.word && this.guesses = 0){
+      this.didWin = true;
+      this.isOver = true;
+    }else{
+      this.word = [];
+      this.guesses = [];
+    }
   }
 
   /**
@@ -65,7 +89,16 @@ class Hangman {
    * drawHead, drawBody, drawRightArm, drawLeftArm, drawRightLeg, or drawLeftLeg.
    * if the number wrong guesses is 6, then also set isOver to true and didWin to false.
    */
-  onWrongGuess() {}
+  onWrongGuess(){
+    
+    new string wordPlaceHolder = new wordPlaceHolder;
+    
+    if(this.word == this.guesses){
+      // confused with this part
+    }
+    
+    return wordPlaceHolder;
+  }
 
   /**
    * This function will return a string of the word placeholder
